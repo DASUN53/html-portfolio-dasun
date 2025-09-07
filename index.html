@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dasun Kavinda | Portfolio</title>
+    <link rel="icon" type="image/jpg" href="title logo.png" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #52009a;
+        --secondary-color: #8500ad;
+        --dark-color: #1a1a2e;
+        --light-color: #706f6f;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #333;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 150px 0 100px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      }
+
+      .profile-image {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 40px;
+        font-weight: 700;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .skill-item {
+        margin-bottom: 20px;
+        padding-left: 50px;
+        position: relative;
+      }
+
+      .skill-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+      }
+
+      .skill-name {
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .progress {
+        height: 8px;
+        border-radius: 4px;
+      }
+
+      .project-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        margin-bottom: 30px;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 3rem;
+        margin-top: 2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: var(--primary-color);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -3.2rem;
+        top: 0.5rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 0 0 3px var(--primary-color);
+      }
+
+      .contact-form .form-control {
+        border-radius: 0;
+        border: none;
+        border-bottom: 2px solid #eee;
+        padding-left: 0;
+        padding-right: 0;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form .form-control:focus {
+        box-shadow: none;
+        border-bottom-color: var(--primary-color);
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        transform: translateY(-3px);
+        background: var(--secondary-color);
+      }
+
+      footer {
+        background: var(--dark-color);
+        color: white;
+        padding: 40px 0 20px;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 120px 0 80px;
+          text-align: center;
+        }
+
+        .profile-image {
+          width: 200px;
+          height: 200px;
+          margin-top: 40px;
+          margin-bottom: 30px;
+        }
+
+        .section-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .skill-item {
+          padding-left: 40px;
+        }
+
+        .skill-icon {
+          width: 30px;
+          height: 30px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><img src="Nav logo new.png" height="65px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home"
+                ><i class="fas fa-home me-1"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about"
+                ><i class="fas fa-user me-1"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills"
+                ><i class="fas fa-tools me-1"></i> Skills</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects"
+                ><i class="fas fa-project-diagram me-1"></i> Projects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education"
+                ><i class="fas fa-graduation-cap me-1"></i> Education</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"
+                ><i class="fas fa-envelope me-1"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold">Dasun Kavinda</h1>
+            <h3 class="mb-4">Software Engineering Undergraduate</h3>
+            <p class="lead">
+              Passionate about creating innovative solutions and expanding my
+              knowledge in software development.
+            </p>
+            <a href="#contact" class="btn btn-light btn-lg mt-3"
+              >Get In Touch</a
+            >
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="cropped_circle_image.png"
+              alt="Dasun Kavinda"
+              class="profile-image img-fluid rounded-circle"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container py-5">
+        <h2 class="section-title">About Me</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="lead">
+              Hello! I'm Dasun Kavinda, a dedicated software engineering
+              undergraduate with a passion for developing innovative software
+              solutions.
+            </p>
+            <p>
+              I'm currently pursuing my degree in Software Engineering, where
+              I'm gaining comprehensive knowledge in various programming
+              languages, software development methodologies, and system design
+              principles.
+            </p>
+            <p>
+              My goal is to become a full-stack developer who can create
+              seamless, user-friendly applications that solve real-world
+              problems. I'm constantly learning new technologies and improving
+              my skills to stay ahead in this rapidly evolving field.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fas fa-user me-2 text-primary"></i
+                      >Name:</strong
+                    >
+                    Dasun Kavinda
+                  </li>
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fas fa-graduation-cap me-2 text-primary"></i
+                      >Degree:</strong
+                    >
+                    Software Engineering
+                  </li>
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fas fa-phone me-2 text-primary"></i
+                      >Phone:</strong
+                    >
+                    +94 70 449 4725
+                  </li>
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fas fa-map-marker-alt me-2 text-primary"></i
+                      >City:</strong
+                    >
+                    Wennappuwa, Sri Lanka
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fas fa-envelope me-2 text-primary"></i
+                      >Email:</strong
+                    >
+                    dasunkavinda366@gmail.com
+                  </li>
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fab fa-github me-2 text-primary"></i
+                      >Github:</strong
+                    >
+                    <a href="https://github.com/DASUN53 ">Dasun53</a>
+                  </li>
+                  <li class="mb-2">
+                    <strong
+                      ><i class="fab fa-linkedin me-2 text-primary"></i
+                      >LinkedIn:</strong
+                    >
+                  <a href="https://www.linkedin.com/in/dasun-kavinda-6b948526a/" >Dasun Kavinda</a> 
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-4">
+              <a href="Pdf/Dasun Kavinda's CV.pdf" class="btn btn-primary me-3"
+                ><i class="fas fa-download me-2"></i>Download CV</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+      <div class="container py-5">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">HTML/CSS</span>
+                <span>60%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                  aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">JavaScript</span>
+                <span>30%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 30%"
+                  aria-valuenow="30"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">Java</span>
+                <span>60%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                  aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-python"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">Python</span>
+                <span>10%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 10%"
+                  aria-valuenow=""
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-react"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">React</span>
+                <span>0%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 0%"
+                  aria-valuenow="0"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">Database Management</span>
+                <span>50%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 50%"
+                  aria-valuenow="50"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fab fa-figma"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">Figma</span>
+                <span>50%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 50%"
+                  aria-valuenow="50"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="fa-solid fa-c"></i>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="skill-name">C programming</span>
+                <span>70%</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 70%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+      <div class="container py-5">
+        <h2 class="section-title">My Projects</h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card card">
+              <img
+                src="Portfolio project.png"
+                class="card-img-top"
+                alt="Project 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Portfolio Website</h5>
+                <p class="card-text">
+                  A Portfolio wensite built with Html, CSS,
+                  and JavaScript.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="#" class="btn btn-sm btn-outline-primary"
+                    >View Project</a
+                  >
+                  <div class="tech-stack">
+                    <span class="badge bg-light text-dark">Html</span>
+                    <span class="badge bg-light text-dark">Css</span>
+                    <span class="badge bg-light text-dark">JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+      <div class="container py-5">
+        <h2 class="section-title">Education & Experience</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="mb-4">
+              <i class="fas fa-graduation-cap me-2 text-primary"></i>Education
+            </h4>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h5>BSc in Software Engineering</h5>
+                <p class="text-primary">
+                  Sabaragamuwa University Of Sri Lanka (2024 - Present)
+                </p>
+                <p>
+                  Currently pursuing my degree with a focus on software
+                  development methodologies, algorithms, and system design.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h5>GCE Advanced Level</h5>
+                <p class="text-primary">
+                  St.Joseph Vaz College, Wennappuwa (2022 - 2023)
+                </p>
+                <p>Completed with | A - Combined Maths
+                                  | C - Physics
+                                  | C - Chemistry | in Physical Science stream.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h4 class="mb-4">
+              <i class="fas fa-briefcase me-2 text-primary"></i>Experience
+            </h4>
+            <div class="timeline">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+      <div class="container py-5">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <form class="contact-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Subject" />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  placeholder="Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+          <div class="col-lg-6 mt-5 mt-lg-0">
+            <div class="card border-0 shadow">
+              <div class="card-body p-4">
+                <h5 class="card-title mb-4">Contact Information</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                    Wennappuwa, Sri Lanka
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-phone me-2 text-primary"></i>
+                    +94 70 449 4725
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-envelope me-2 text-primary"></i>
+                    dasunkavinda366@gmial.com
+                  </li>
+                </ul>
+                <div class="social-icons mt-4">
+                  <a href="https://www.facebook.com/share/1CvkiviPQH/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dasunkavinda366?igsh=eDJ4bjM1amx0OXJ5&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/dasun-kavinda-6b948526a/"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://github.com/DASUN53"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+            <p>&copy; 2023 Dasun Kavinda. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+      // Back to top button
+      const backToTopButton = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add("active");
+        } else {
+          backToTopButton.classList.remove("active");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.padding = "10px 0";
+          navbar.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+        } else {
+          navbar.style.padding = "15px 0";
+          navbar.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".skill-item, .project-card, .timeline-item"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+
+          if (elementPosition < screenPosition) {
+            element.style.opacity = 1;
+            element.style.transform = "translateY(0)";
+          }
+        });
+      }
+
+      // Initialize elements with opacity 0 for animation
+      document
+        .querySelectorAll(".skill-item, .project-card, .timeline-item")
+        .forEach((element) => {
+          element.style.opacity = 0;
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "all 0.5s ease";
+        });
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+    </script>
+  </body>
+</html>
