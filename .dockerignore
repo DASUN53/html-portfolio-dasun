@@ -1,0 +1,14 @@
+.git
+.gitignore
+
+README.md
+LICENSE
+
+screenshots/
+
+.vscode/
+.idea/
+
+node_modules/
+
+*.log
