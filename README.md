@@ -108,15 +108,15 @@ docker rmi static-website:v1
 
 ### Home Page
 
-![Home](screenshots/home-page.png)
+![Home](screenshots/Homepage.png)
 
 ### Button Click
 
-![Button](screenshots/button-click.png)
+![Button](screenshots/buttonClick.png)
 
 ### Docker Container Running
 
-![Docker](screenshots/docker-ps.png)
+![Docker](screenshots/Doker-ps.png)
 
 ---
 
@@ -134,4 +134,4 @@ docker rmi static-website:v1
 
 ## Author
 
-Dasun
+Dasun Kavinda
